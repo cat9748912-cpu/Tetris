@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Cyberpunk Tetris</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="sidebar">
+            <h1>NEON<br>TETRIS</h1>
+            
+            <div class="stats-container">
+                <div class="stats-box">
+                    <h2>SCORE</h2>
+                    <div id="score">0</div>
+                </div>
+                <div class="stats-box">
+                    <h2>LEVEL</h2>
+                    <div id="level">1</div>
+                </div>
+            </div>
+
+            <button id="start-btn">INITIALIZE GAME</button>
+            
+            <div class="leaderboard-box">
+                <h3>TOP CYBER-RUNNERS</h3>
+                <ol id="leaderboard-list"></ol>
+            </div>
+        </div>
+
+        <div class="canvas-area">
+            <canvas id="tetris" width="240" height="480"></canvas>
+        </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>

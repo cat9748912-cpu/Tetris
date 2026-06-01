@@ -1,3 +1,19 @@
+// --- 1. INITIALIZE FIREBASE GLOBAL CONNECTION FIRST ---
+const firebaseConfig = {
+  apiKey: "AIzaSyAtIiGkS-o38i8L8xmjeRqe-rmQ-JTfYsY",
+  authDomain: "cyberpunk-tetris.firebaseapp.com",
+  databaseURL: "https://cyberpunk-tetris-default-rtdb.asia-southeast1.firebasedatabase.app", 
+  projectId: "cyberpunk-tetris",
+  storageBucket: "cyberpunk-tetris.firebasestorage.app",
+  messagingSenderId: "760813366551",
+  appId: "1:760813366551:web:155728f3f17cfa45199b52",
+  measurementId: "G-MV6XWCCB5J"
+};
+
+firebase.initializeApp(firebaseConfig);
+const database = firebase.database();
+
+// --- 2. GAME CONSTANTS AND CANVAS INSTANCES ---
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
@@ -5,7 +21,6 @@ const levelElement = document.getElementById('level');
 const startBtn = document.getElementById('start-btn');
 const leaderboardList = document.getElementById('leaderboard-list');
 
-// Setup for the Next Piece Preview Canvas
 const nextCanvas = document.getElementById('nextCanvas');
 const nextContext = nextCanvas.getContext('2d');
 
@@ -211,22 +226,7 @@ function playerRotate(dir) {
     }
 }
 
-// --- GLOBAL FIREBASE LEADERBOARD LOGIC ---
-const firebaseConfig = {
-  apiKey: "AIzaSyAtIiGkS-o38i8L8xmjeRqe-rmQ-JTfYsY",
-  authDomain: "cyberpunk-tetris.firebaseapp.com",
-  databaseURL: "https://cyberpunk-tetris-default-rtdb.asia-southeast1.firebasedatabase.app", 
-  projectId: "cyberpunk-tetris",
-  storageBucket: "cyberpunk-tetris.firebasestorage.app",
-  messagingSenderId: "760813366551",
-  appId: "1:760813366551:web:155728f3f17cfa45199b52",
-  measurementId: "G-MV6XWCCB5J"
-};
-
-// Initialize Firebase App explicitly
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
+// --- 3. DATABASE LEADERSHIP HANDLERS ---
 function loadLeaderboard() {
     database.ref('scores').orderByChild('score').limitToLast(5).on('value', (snapshot) => {
         const scores = [];
@@ -291,4 +291,5 @@ startBtn.addEventListener('click', () => {
     update();
 });
 
+// Run this immediately to bind listener to cloud data stream
 loadLeaderboard();

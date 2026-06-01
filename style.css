@@ -1,6 +1,6 @@
 /* --- Global Reset and Cyberpunk Environment --- */
 body {
-    background-color: #030305;
+    background-color: #07070a; /* Deep dark background */
     color: #39ff14;
     font-family: 'Courier New', Courier, monospace;
     display: flex;
@@ -14,67 +14,71 @@ body {
 
 /* --- Main Dashboard Title --- */
 h1 {
-    text-shadow: 0 0 10px #39ff14;
-    margin-bottom: 20px;
+    color: #39ff14;
+    text-shadow: 0 0 15px #39ff14;
+    font-size: 2.5rem;
     letter-spacing: 2px;
+    margin-bottom: 20px;
 }
 
-/* --- Container App Wrapper --- */
+/* --- Container App Wrapper (Pink Glow) --- */
 .game-container {
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    background: rgba(13, 13, 17, 0.9);
+    background: #050505;
     padding: 20px;
-    border: 2px solid #ff007f;
-    box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+    border: 3px solid #ff007f;
+    box-shadow: 0 0 20px #ff007f;
     border-radius: 8px;
 }
 
-/* --- Primary Play Grid Canvas --- */
+/* --- Primary Play Grid Canvas (Cyan Glow) --- */
 canvas#tetris {
-    background: #0d0d11;
+    background: #000000;
     border: 2px solid #00f0ff;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
 }
 
 /* --- Right Side Control Deck --- */
 .sidebar {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    min-width: 160px;
+    gap: 20px;
+    min-width: 180px;
 }
 
-/* --- Individual Panel Pods --- */
+/* --- Individual Panel Pods (Green Glow) --- */
 .panel {
-    background: #14141c;
+    background: #000000;
     border: 1px solid #39ff14;
-    padding: 10px;
+    padding: 15px;
     border-radius: 4px;
-    box-shadow: inset 0 0 10px rgba(57, 255, 20, 0.1);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
 }
 
+/* --- Cyan Panel Headers --- */
 .panel h3 {
-    margin: 0 0 8px 0;
-    font-size: 14px;
+    margin: 0 0 12px 0;
+    font-size: 16px;
     letter-spacing: 1px;
     color: #00f0ff;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
 }
 
-/* --- Next Piece Preview Box Canvas --- */
+/* --- Score and Level Numbers (Pink) --- */
+.panel h3 span {
+    color: #ff007f;
+    text-shadow: 0 0 10px #ff007f;
+}
+
+/* --- Next Piece Preview Box Canvas (Orange Glow) --- */
 canvas#nextCanvas {
     display: block;
     margin: 0 auto;
-    background: #0d0d11;
+    background: #000000;
     border: 1px solid #ffbc00;
-}
-
-/* --- Scoreboard Dynamic Readouts --- */
-#score, #level {
-    color: #ff007f;
-    font-weight: bold;
-    text-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
+    box-shadow: 0 0 10px rgba(255, 188, 0, 0.4);
 }
 
 /* --- Global Cloud Leaderboard List --- */
@@ -82,34 +86,38 @@ canvas#nextCanvas {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 #leaderboard-list li {
-    padding: 4px 0;
-    border-bottom: 1px dashed rgba(57, 255, 20, 0.2);
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(57, 255, 20, 0.4);
     color: #39ff14;
+    text-shadow: 0 0 5px #39ff14;
 }
 
-/* --- Action System Run Button --- */
+/* --- Action System Run Button (Pink Box, White Text) --- */
 #start-btn {
-    background: #ff007f;
-    color: #fff;
-    border: none;
-    padding: 12px;
+    background-color: #ff007f;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 15px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+    border-radius: 6px;
+    box-shadow: 0 0 15px #ff007f;
+    text-shadow: 0 0 5px #ffffff;
     transition: all 0.2s ease;
 }
 
 #start-btn:hover {
-    background: #39ff14;
-    color: #000;
-    box-shadow: 0 0 15px #39ff14;
+    background-color: #ffffff;
+    color: #ff007f;
+    border-color: #ff007f;
+    box-shadow: 0 0 25px #ff007f;
+    text-shadow: none;
 }
 
 #start-btn:focus {

@@ -1,125 +1,99 @@
-/* --- Global Reset and Classic Neon Environment --- */
 body {
-    background-color: #000000; /* Pitch black background */
-    color: #39ff14; /* Neon Green text */
+    background-color: #1a1a1a;
+    color: #fff;
     font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    display: flex;
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    align-items: center;
+}
+
+.sidebar {
+    margin-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    overflow: hidden;
+    min-width: 150px;
 }
 
-/* --- Main Dashboard Title --- */
 h1 {
-    color: #39ff14;
-    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+    font-size: 2rem;
     margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #00f0ff;
 }
 
-/* --- Container App Wrapper (Pink Border & Glow) --- */
-.game-container {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: #000000;
-    padding: 20px;
-    border: 3px solid #ff007f; /* Neon Pink */
-    box-shadow: 0 0 20px #ff007f;
-    border-radius: 8px;
+/* Updated to style both your score boxes and leaderboard/next-piece panels exactly the same */
+.score-box, .panel {
+    background: #111;
+    border: 2px solid #333;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Prevents padding from breaking layout width */
 }
 
-/* --- Primary Play Grid Canvas (Cyan Border & Glow) --- */
-canvas#tetris {
-    background: #000000;
-    border: 3px solid #00f0ff; /* Neon Cyan */
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+.score-box h2, .panel h3 {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+    color: #aaa;
+    text-transform: uppercase;
 }
 
-/* --- Right Side Control Deck --- */
-.sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    min-width: 180px;
+#score, #level {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #ff007f;
 }
 
-/* --- Individual Panel Pods (Green Border & Glow) --- */
-.panel {
-    background: #000000;
-    border: 1px solid #39ff14; /* Neon Green */
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
-}
-
-/* --- Panel Headers --- */
-.panel h3 {
-    margin: 0 0 12px 0;
-    font-size: 15px;
-    letter-spacing: 1px;
-    color: #00f0ff; /* Neon Cyan Text */
-    text-shadow: 0 0 5px #00f0ff;
-}
-
-/* --- Score, Level, and Leaderboard Numbers (Pink text) --- */
-.panel h3 span, #leaderboard-list {
-    color: #ff007f; /* Neon Pink */
-    text-shadow: 0 0 5px #ff007f;
-}
-
-/* --- Next Piece Preview Box Canvas (Orange Border) --- */
-canvas#nextCanvas {
-    display: block;
-    margin: 0 auto;
-    background: #000000;
-    border: 1px solid #ffbc00; /* Neon Orange */
-    box-shadow: 0 0 10px rgba(255, 188, 0, 0.4);
-}
-
-/* --- Global Cloud Leaderboard List --- */
+/* Leaderboard list design that fits right into your original style */
 #leaderboard-list {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 13px;
+    font-size: 1rem;
+    text-align: left;
 }
 
 #leaderboard-list li {
-    padding: 6px 0;
-    border-bottom: 1px dashed rgba(57, 255, 20, 0.3);
-    color: #39ff14; /* Green names */
-    text-shadow: 0 0 5px #39ff14;
+    padding: 4px 0;
+    border-bottom: 1px dashed #333;
+    color: #fff;
 }
 
-/* --- Action System Run Button (Pink Box, White Text) --- */
-#start-btn {
-    background-color: #ff007f; /* Solid Neon Pink */
-    color: #ffffff; /* White Text */
-    border: 2px solid #ffffff;
-    padding: 15px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bold;
-    font-size: 16px;
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: #00f0ff;
+    color: #000;
+    border: none;
     cursor: pointer;
-    border-radius: 6px;
-    box-shadow: 0 0 15px #ff007f;
-    text-shadow: 0 0 5px #ffffff;
-    transition: all 0.2s ease;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.2s;
+    width: 100%; /* Stretches button to fit your panel width */
 }
 
-#start-btn:hover {
-    background-color: #ffffff;
-    color: #ff007f;
-    border-color: #ff007f;
-    box-shadow: 0 0 25px #ff007f;
-    text-shadow: none;
+button:hover {
+    background-color: #ff007f;
+    color: #fff;
 }
 
-#start-btn:focus {
-    outline: none;
+/* Applies your classic canvas border to BOTH game boards */
+canvas {
+    border: 4px solid #333;
+    background-color: #111;
 }

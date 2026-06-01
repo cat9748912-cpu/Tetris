@@ -1,4 +1,4 @@
-// --- 1. INITIALIZE FIREBASE GLOBAL CONNECTION FIRST ---
+// --- 1. INITIALIZE FIREBASE GLOBAL CONNECTION ---
 const firebaseConfig = {
   apiKey: "AIzaSyAtIiGkS-o38i8L8xmjeRqe-rmQ-JTfYsY",
   authDomain: "cyberpunk-tetris.firebaseapp.com",
@@ -10,10 +10,18 @@ const firebaseConfig = {
   measurementId: "G-MV6XWCCB5J"
 };
 
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
+// Global database reference variable
+let database;
 
-// --- 2. GAME CONSTANTS AND CANVAS INSTANCES ---
+try {
+    firebase.initializeApp(firebaseConfig);
+    database = firebase.database();
+    console.log("Firebase connected successfully!");
+} catch (error) {
+    alert("Firebase Connection Failed! Check script order: " + error.message);
+}
+
+// --- 2. GAME SETUP ---
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 const scoreElement = document.getElementById('score');
@@ -228,6 +236,7 @@ function playerRotate(dir) {
 
 // --- 3. DATABASE LEADERSHIP HANDLERS ---
 function loadLeaderboard() {
+    if (!database) return;
     database.ref('scores').orderByChild('score').limitToLast(5).on('value', (snapshot) => {
         const scores = [];
         snapshot.forEach((childSnapshot) => {
@@ -246,6 +255,10 @@ function loadLeaderboard() {
 }
 
 function saveHighScore(name, score, level) {
+    if (!database) {
+        console.error("Database connection missing!");
+        return;
+    }
     database.ref('scores').push({
         name: name,
         score: score,
@@ -291,5 +304,4 @@ startBtn.addEventListener('click', () => {
     update();
 });
 
-// Run this immediately to bind listener to cloud data stream
 loadLeaderboard();

@@ -1,7 +1,7 @@
-/* --- Global Reset and Cyberpunk Environment --- */
+/* --- Global Reset and Classic Neon Environment --- */
 body {
-    background-color: #07070a; /* Deep dark background */
-    color: #39ff14;
+    background-color: #000000; /* Pitch black background */
+    color: #39ff14; /* Neon Green text */
     font-family: 'Courier New', Courier, monospace;
     display: flex;
     flex-direction: column;
@@ -15,29 +15,29 @@ body {
 /* --- Main Dashboard Title --- */
 h1 {
     color: #39ff14;
-    text-shadow: 0 0 15px #39ff14;
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
     font-size: 2.5rem;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
-/* --- Container App Wrapper (Pink Glow) --- */
+/* --- Container App Wrapper (Pink Border & Glow) --- */
 .game-container {
     display: flex;
     gap: 20px;
     align-items: flex-start;
-    background: #050505;
+    background: #000000;
     padding: 20px;
-    border: 3px solid #ff007f;
+    border: 3px solid #ff007f; /* Neon Pink */
     box-shadow: 0 0 20px #ff007f;
     border-radius: 8px;
 }
 
-/* --- Primary Play Grid Canvas (Cyan Glow) --- */
+/* --- Primary Play Grid Canvas (Cyan Border & Glow) --- */
 canvas#tetris {
     background: #000000;
-    border: 2px solid #00f0ff;
-    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+    border: 3px solid #00f0ff; /* Neon Cyan */
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
 }
 
 /* --- Right Side Control Deck --- */
@@ -48,36 +48,36 @@ canvas#tetris {
     min-width: 180px;
 }
 
-/* --- Individual Panel Pods (Green Glow) --- */
+/* --- Individual Panel Pods (Green Border & Glow) --- */
 .panel {
     background: #000000;
-    border: 1px solid #39ff14;
+    border: 1px solid #39ff14; /* Neon Green */
     padding: 15px;
     border-radius: 4px;
     box-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
 }
 
-/* --- Cyan Panel Headers --- */
+/* --- Panel Headers --- */
 .panel h3 {
     margin: 0 0 12px 0;
-    font-size: 16px;
+    font-size: 15px;
     letter-spacing: 1px;
-    color: #00f0ff;
-    text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+    color: #00f0ff; /* Neon Cyan Text */
+    text-shadow: 0 0 5px #00f0ff;
 }
 
-/* --- Score and Level Numbers (Pink) --- */
-.panel h3 span {
-    color: #ff007f;
-    text-shadow: 0 0 10px #ff007f;
+/* --- Score, Level, and Leaderboard Numbers (Pink text) --- */
+.panel h3 span, #leaderboard-list {
+    color: #ff007f; /* Neon Pink */
+    text-shadow: 0 0 5px #ff007f;
 }
 
-/* --- Next Piece Preview Box Canvas (Orange Glow) --- */
+/* --- Next Piece Preview Box Canvas (Orange Border) --- */
 canvas#nextCanvas {
     display: block;
     margin: 0 auto;
     background: #000000;
-    border: 1px solid #ffbc00;
+    border: 1px solid #ffbc00; /* Neon Orange */
     box-shadow: 0 0 10px rgba(255, 188, 0, 0.4);
 }
 
@@ -91,15 +91,15 @@ canvas#nextCanvas {
 
 #leaderboard-list li {
     padding: 6px 0;
-    border-bottom: 1px dashed rgba(57, 255, 20, 0.4);
-    color: #39ff14;
+    border-bottom: 1px dashed rgba(57, 255, 20, 0.3);
+    color: #39ff14; /* Green names */
     text-shadow: 0 0 5px #39ff14;
 }
 
 /* --- Action System Run Button (Pink Box, White Text) --- */
 #start-btn {
-    background-color: #ff007f;
-    color: #ffffff;
+    background-color: #ff007f; /* Solid Neon Pink */
+    color: #ffffff; /* White Text */
     border: 2px solid #ffffff;
     padding: 15px;
     font-family: 'Courier New', Courier, monospace;

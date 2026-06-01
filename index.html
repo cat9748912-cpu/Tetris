@@ -3,41 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neon Cyberpunk Tetris</title>
+    <title>Cyberpunk Tetris</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="game-wrapper">
+
+    <h1>CYBER-GRID TRON_v1.0</h1>
+
+    <div class="game-container">
+        <canvas id="tetris" width="240" height="480"></canvas>
+        
         <div class="sidebar">
-            <h1>NEON<br>TETRIS</h1>
-            
-            <div class="stats-container">
-                <div class="stats-box">
-                    <h2>SCORE</h2>
-                    <div id="score">0</div>
-                </div>
-                <div class="stats-box">
-                    <h2>LEVEL</h2>
-                    <div id="level">1</div>
-                </div>
+            <div class="panel">
+                <h3>NEXT PIECE</h3>
+                <canvas id="nextCanvas" width="80" height="80"></canvas>
             </div>
-
-            <button id="start-btn">INITIALIZE GAME</button>
-            
-            <div class="leaderboard-box">
-                <h3>TOP CYBER-RUNNERS</h3>
-                <ol id="leaderboard-list"></ol>
+            <div class="panel">
+                <h3>SCORE: <span id="score">0</span></h3>
+                <h3>LEVEL: <span id="level">1</span></h3>
             </div>
-        </div>
-
-        <div class="canvas-area">
-            <canvas id="tetris" width="240" height="480"></canvas>
+            <div class="panel">
+                <h3>GLOBAL TOP 5</h3>
+                <ul id="leaderboard-list"></ul>
+            </div>
+            <button id="start-btn">INITIALIZE SYSTEM</button>
         </div>
     </div>
-    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-database-compat.js"></script>
+
     <script src="script.js"></script>
-</body>
-</html>
 </body>
 </html>
